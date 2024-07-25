@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+    <title>Tsheyang</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #ffd7cd;
+        }
+
+        .hurricane-regular {
+            font-family: "Hurricane", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        .overlay-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #ffd7cd;
+            z-index: 1;
+        }
+
+        .overlay-box-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #ffd7cd;
+            z-index: 1;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 11vw;
+            z-index: 1;
+            pointer-events: none; /* Make background click-through */
+            backdrop-filter: blur(5px); /* Gaussian blur effect */
+        }
+    </style>
+</head>
+
+<body>
+<div class="sketchfab-embed-wrapper" style="height: 100%; width: 100%">
+    <iframe id="myIframe" title="Bloom" frameborder="0" height="100%" width="100%" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/44b09720154041fcbc19f775150f2fbf/embed?autostart=1&preload=1&dnt=1"></iframe>
+    <div class="overlay-box"></div>
+    <div class="overlay-box-2"></div>
+
+    <div class="overlay-text hurricane-regular">Tsheyang</div>
+
+</div>
+</body>
+
+
+</html>
+<script>
+    $(document).ready(function() {
+        $('#myIframe').on('load', function() {
+            setTimeout(function() {
+                var iframe = $('#myIframe')[0];
+                var iframeDoc = $(iframe).contents();
+                iframeDoc.scrollTop(0);
+                console.log('scroll')
+            }, 5000); // 5000 milliseconds = 5 seconds
+        });
+    });
+</script>
+</script>
