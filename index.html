@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Tsheyang</title>
+    <link rel="icon" type="image/x-icon" href="/imgs/icons8-spa-flower-office-m-32.png">
+
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
             integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
             crossorigin="anonymous"></script>
@@ -74,6 +76,11 @@
             font-size: 5vw;
             z-index: 1;
             pointer-events: none; /* Make background click-through */
+        }
+
+        .tsheyang {
+            margin-top: 120px;
+            font-size: 60px;
             animation: fadeIn 2s forwards; /* Animation to show */
         }
 
@@ -90,11 +97,17 @@
             font-size: 14px;
             margin-top: 10px;
             color: black;
+            animation: fadeIn 2s forwards; /* Animation to show */
+
         }
     </style>
 </head>
 
 <body>
+<audio id="background-music" autoplay loop>
+    <source src="clairdelune.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 <div class="sketchfab-embed-wrapper" >
     <iframe id="myIframe" title="Bloom" frameborder="0" height="100%" width="100%" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
             allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
@@ -104,7 +117,7 @@
     <div class="overlay-box-2"></div>
 
     <div class="overlay-text hurricane-regular" >
-        <div style="margin-top: 120px; font-size: 60px;">Tsheyang</div>
+        <div class="tsheyang">Tsheyang</div>
         <div class="subtext noto-sans-light" style="color: white; font-size: 14px">To Live Long and Be Beautiful</div>
     </div>
 
@@ -115,13 +128,8 @@
 
 </html>
 <script>
-    // $(document).ready(function() {
-    //     $('#myIframe').on('load', function() {
-    //         setTimeout(function() {
-    //             var layover = $('.overlay-text')[0];
-    //             layover.style.display = 'block';
-    //         }, 2000); // 5000 milliseconds = 5 seconds
-    //     });
-    // });
+        const audioElement = document.getElementById('background-music');
+        audioElement.play();
+</script>
 </script>
 </script>
