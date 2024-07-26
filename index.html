@@ -13,15 +13,25 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Tsheyang</title>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
             integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
             crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #ffd7cd;
+            background-color: #f7bccd;
         }
+
+
+        .noto-sans-light {
+                        font-family: "Noto Sans", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: <weight>;
+                        font-style: normal;
+                        font-variation-settings:
+                                "wdth" 100;
+                    }
 
         .hurricane-regular {
             font-family: "Hurricane", cursive;
@@ -46,30 +56,48 @@
             left: 0;
             width: 100%;
             height: 60px;
-            background-color: #ffd7cd;
+            background-color: #f7bccd;
             z-index: 1;
         }
 
         .overlay-text {
             position: absolute;
-            top: 50%;
+            top: 0px;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+            width: 100%;
+            height: 250px;
+            background-color: rgba(238, 160, 201, 0.5); /* Semi-transparent background */
             padding: 10px 20px;
             border-radius: 10px;
             text-align: center;
-            font-size: 11vw;
+            font-size: 5vw;
             z-index: 1;
             pointer-events: none; /* Make background click-through */
             backdrop-filter: blur(5px); /* Gaussian blur effect */
+            animation: fadeIn 2s forwards; /* Animation to show */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .overlay-text .subtext {
+            font-size: 14px;
+            margin-top: 10px;
+            color: black;
         }
     </style>
 </head>
 
 <body>
-<div class="sketchfab-embed-wrapper" style="height: 100%; width: 100%">
+<div class="sketchfab-embed-wrapper" >
     <iframe id="myIframe" title="Bloom" frameborder="0" height="100%" width="100%" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
             allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
             execution-while-not-rendered web-share
@@ -77,7 +105,11 @@
     <div class="overlay-box"></div>
     <div class="overlay-box-2"></div>
 
-    <div class="overlay-text hurricane-regular">Tsheyang</div>
+    <div class="overlay-text hurricane-regular" >
+        <div style="margin-top: 120px; font-size: 60px;">Tsheyang</div>
+        <div class="subtext noto-sans-light" style="color: white; font-size: 14px">To Live Long and Be Beautiful</div>
+    </div>
+
 
 </div>
 </body>
@@ -85,15 +117,13 @@
 
 </html>
 <script>
-    $(document).ready(function() {
-        $('#myIframe').on('load', function() {
-            setTimeout(function() {
-                var iframe = $('#myIframe')[0];
-                var iframeDoc = $(iframe).contents();
-                iframeDoc.scrollTop(0);
-                console.log('scroll')
-            }, 5000); // 5000 milliseconds = 5 seconds
-        });
-    });
+    // $(document).ready(function() {
+    //     $('#myIframe').on('load', function() {
+    //         setTimeout(function() {
+    //             var layover = $('.overlay-text')[0];
+    //             layover.style.display = 'block';
+    //         }, 2000); // 5000 milliseconds = 5 seconds
+    //     });
+    // });
 </script>
 </script>
